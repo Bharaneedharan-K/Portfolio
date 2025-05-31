@@ -11,17 +11,7 @@
   --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
-/* Add specific styles for white text sections */
-.hero-section p,
-.education-section p,
-.projects-section p,
-.contact-section p,
-footer p {
-  color: #ffffff;
-}
-
 html, body {
-  height: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Inter', Arial, sans-serif;
@@ -29,14 +19,19 @@ html, body {
   color: var(--text);
   scroll-behavior: smooth;
   overflow-x: hidden;
-}
-
-body {
-  min-height: 100vh;
-  line-height: 1.6;
-  background: var(--bg);
+  min-height: 100%;
   width: 100%;
   box-sizing: border-box;
+  line-height: 1.6;
+}
+
+/* White text for specific sections */
+.hero-section p,
+.education-section p,
+.projects-section p,
+.contact-section p,
+footer p {
+  color: #ffffff;
 }
 
 main {
@@ -52,6 +47,7 @@ section {
   padding: 4rem 0 3rem 0;
   width: 100%;
   max-width: 900px;
+  box-sizing: border-box;
 }
 
 h1, h2, h3 {
@@ -64,13 +60,26 @@ h1 { font-size: 2.7rem; }
 h2 { font-size: 2rem; }
 h3 { font-size: 1.2rem; }
 
-a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
-a:hover { color: var(--secondary); }
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--secondary);
+}
 
-::-webkit-scrollbar { width: 8px; background: var(--bg-alt); }
-::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 8px; }
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--bg-alt);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 8px;
+}
 
-/* Card utility (no glass, no blur) */
+/* Cards */
 .card {
   background: var(--card);
   border-radius: var(--radius);
@@ -83,16 +92,7 @@ a:hover { color: var(--secondary); }
   border: 1.5px solid var(--primary);
 }
 
-/* Ensure Skills link navigates correctly */
-a[href="#skills"] { scroll-behavior: smooth; }
-
-@media (max-width: 900px) {
-  main { padding: 0 0.5rem; }
-  section { padding: 2.5rem 0 1.5rem 0; max-width: 100%; }
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.3rem; }
-}
-
+/* Skill item */
 .skill-item {
   display: flex;
   align-items: center;
@@ -107,10 +107,60 @@ a[href="#skills"] { scroll-behavior: smooth; }
   box-shadow: 0 2px 8px #232a3a22;
   border: 1.2px solid var(--border);
 }
-
 .skill-item:hover {
   background: var(--primary);
   color: #ffffff;
   transform: translateY(-1px) scale(1.04);
   border: 1.2px solid var(--primary);
-} 
+}
+
+/* Ensure smooth navigation */
+a[href="#skills"] {
+  scroll-behavior: smooth;
+}
+
+/* ============================
+   Responsive Design
+   ============================ */
+
+@media (max-width: 900px) {
+  main {
+    padding: 0 1rem;
+  }
+
+  section {
+    padding: 2.5rem 0 1.5rem 0;
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  .skill-item {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+  }
+}
