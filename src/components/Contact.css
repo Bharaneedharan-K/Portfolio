@@ -2,54 +2,55 @@
   background: var(--bg);
   border-radius: var(--radius);
   margin-bottom: 3rem;
-  padding-bottom: 2.5rem;
+  padding: 2.2rem 1.5rem;
   box-shadow: var(--shadow);
-  padding: 2.2rem 1.5rem 2.2rem 1.5rem;
 }
-.contact-info {
-  display: flex;
-  gap: 2.2rem;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-}
-.contact-info div {
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
-  box-shadow: var(--shadow);
-  min-width: 0;
-  flex: 1 1 0;
+
+.contact-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.5rem;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.contact-box {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.2rem;
+  box-shadow: var(--shadow);
   border: 1.5px solid var(--border);
-  word-break: break-all;
+  width: 100%;
+  max-width: 600px;
   transition: box-shadow 0.2s, border 0.2s, transform 0.2s;
 }
-.contact-info div:hover {
-  box-shadow: 0 12px 32px 0 rgba(24,40,72,0.35);
+
+.contact-box:hover {
+  box-shadow: 0 12px 32px rgba(24, 40, 72, 0.35);
   border: 1.5px solid var(--primary);
   transform: translateY(-2px) scale(1.01);
 }
-.contact-info h3 {
+
+.contact-box h3 {
   color: var(--primary);
   font-size: 1.1rem;
-  margin-bottom: 0.2rem;
+  margin: 0.8rem 0 0.2rem;
   display: flex;
   align-items: center;
   gap: 0.7rem;
 }
-.contact-info p {
+
+.contact-box p {
   color: #a5b4fc;
   font-size: 1.05rem;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.3rem;
 }
+
 .contact-social {
   display: flex;
   gap: 1.2rem;
   justify-content: center;
 }
+
 .contact-social a {
   color: var(--primary);
   background: #232a3a;
@@ -63,10 +64,14 @@
   transition: background 0.15s, color 0.15s;
   box-shadow: 0 2px 8px #232a3a22;
 }
+
 .contact-social a:hover {
   background: var(--primary);
   color: #fff;
 }
+
 @media (max-width: 700px) {
-  .contact-info { flex-direction: column; gap: 1.2rem; }
-} 
+  .contact-box {
+    width: 100%;
+  }
+}
