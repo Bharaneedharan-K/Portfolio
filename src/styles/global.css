@@ -29,6 +29,8 @@ html, body {
   color: var(--text);
   scroll-behavior: smooth;
   overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 body {
@@ -40,18 +42,18 @@ body {
 }
 
 main {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
   width: 100%;
   box-sizing: border-box;
 }
 
 section {
   margin: 0 auto;
-  padding: 4rem 0 3rem 0;
+  padding: 4rem 0;
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
 }
 
 h1, h2, h3 {
@@ -60,9 +62,9 @@ h1, h2, h3 {
   margin-bottom: 1.2rem;
 }
 
-h1 { font-size: 2.7rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.2rem; }
+h1 { font-size: clamp(2rem, 5vw, 2.7rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2rem); }
+h3 { font-size: clamp(1.1rem, 3vw, 1.2rem); }
 
 a { color: var(--primary); text-decoration: none; transition: color 0.2s; }
 a:hover { color: var(--secondary); }
@@ -77,6 +79,8 @@ a:hover { color: var(--secondary); }
   box-shadow: var(--shadow);
   border: 1.5px solid var(--border);
   transition: box-shadow 0.2s, border 0.2s;
+  padding: clamp(1rem, 3vw, 2rem);
+  margin: clamp(0.5rem, 2vw, 1rem);
 }
 .card:hover {
   box-shadow: 0 8px 32px 0 rgba(24,40,72,0.18);
@@ -86,11 +90,73 @@ a:hover { color: var(--secondary); }
 /* Ensure Skills link navigates correctly */
 a[href="#skills"] { scroll-behavior: smooth; }
 
-@media (max-width: 900px) {
-  main { padding: 0 0.5rem; }
-  section { padding: 2.5rem 0 1.5rem 0; max-width: 100%; }
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.3rem; }
+/* Responsive grid layouts */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* Media Queries */
+/* Large screens (1200px and up) */
+@media (min-width: 1200px) {
+  main { padding: 0 4rem; }
+  .about-grid { gap: 3rem; }
+}
+
+/* Medium screens (tablets, 768px to 1199px) */
+@media (max-width: 1199px) {
+  main { padding: 0 2rem; }
+  section { padding: 3rem 0; }
+  .about-grid { gap: 2rem; }
+}
+
+/* Small screens (large phones, 576px to 767px) */
+@media (max-width: 767px) {
+  main { padding: 0 1.5rem; }
+  section { padding: 2.5rem 0; }
+  .about-grid { gap: 1.5rem; }
+  .card { margin: 0.5rem; }
+}
+
+/* Extra small screens (phones, up to 575px) */
+@media (max-width: 575px) {
+  main { padding: 0 1rem; }
+  section { padding: 2rem 0; }
+  .about-grid { gap: 1rem; }
+  .card { margin: 0.25rem; }
+  .skill-item { 
+    padding: 0.4rem 0.8rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Ensure content is readable on all devices */
+p, li, .skill-item {
+  line-height: 1.6;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 767px) {
+  .skill-item {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  
+  a, button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Maintain aspect ratios for images */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .skill-item {
@@ -99,9 +165,9 @@ a[href="#skills"] { scroll-behavior: smooth; }
   gap: 0.4rem;
   background: var(--card);
   color: #ffffff;
-  padding: 0.5rem 1.1rem;
+  padding: clamp(0.4rem, 2vw, 0.5rem) clamp(0.8rem, 3vw, 1.1rem);
   border-radius: 22px;
-  font-size: 1rem;
+  font-size: clamp(0.875rem, 2vw, 1rem);
   font-weight: 600;
   transition: all 0.2s;
   box-shadow: 0 2px 8px #232a3a22;
