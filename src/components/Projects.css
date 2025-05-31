@@ -1,0 +1,86 @@
+.projects-section {
+  background: var(--bg-alt);
+  border-radius: var(--radius);
+  margin-bottom: 3rem;
+  box-shadow: var(--shadow);
+  padding: 2.2rem 1.5rem 2.2rem 1.5rem;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+.project-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  border: 1.5px solid var(--border);
+  transition: box-shadow 0.2s, border 0.2s, transform 0.2s;
+}
+.project-card:hover {
+  box-shadow: 0 12px 32px 0 rgba(24,40,72,0.35);
+  border: 1.5px solid var(--primary);
+  transform: translateY(-2px) scale(1.01);
+}
+.project-card:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+.project-card h3 {
+  color: var(--primary);
+  font-size: 1.15rem;
+  margin-bottom: 0.2rem;
+}
+.project-desc {
+  color: #a5b4fc;
+  font-size: 1.05rem;
+  margin-bottom: 0.1rem;
+}
+.project-meta {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 1rem;
+  color: #c7d2fe;
+}
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.project-tech span {
+  background: var(--card);
+  color: var(--primary);
+  padding: 0.4rem 1rem;
+  border-radius: 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px #232a3a22;
+  border: 1.2px solid var(--border);
+}
+.project-tech span:hover {
+  background: var(--primary);
+  color: #fff;
+  border: 1.2px solid var(--primary);
+}
+.project-btn {
+  margin-top: 0.7rem;
+  align-self: flex-start;
+  padding: 0.7rem 1.5rem;
+  border-radius: 20px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: #fff !important;
+  font-weight: 700;
+  border: none;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s, color 0.15s;
+  box-shadow: 0 2px 8px #232a3a22;
+}
+.project-btn:hover {
+  background: linear-gradient(90deg, var(--secondary), var(--primary));
+  color: #fff !important;
+  transform: translateY(-1px) scale(1.04);
+} 
